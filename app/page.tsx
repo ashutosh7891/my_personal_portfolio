@@ -38,7 +38,14 @@ export default function Portfolio() {
     name: "",
     email: "",
     message: "",
+    honeypot: "", // Hidden field that bots will fill
   });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
+  const [lastSubmitTime, setLastSubmitTime] = useState(0);
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -47,12 +54,70 @@ export default function Portfolio() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
-    // Reset form
-    setFormData({ name: "", email: "", message: "" });
+
+    // Check honeypot field (should be empty)
+    if (formData.honeypot) {
+      return;
+    }
+
+    // Rate limiting: prevent submissions within 30 seconds
+    const now = Date.now();
+    if (now - lastSubmitTime < 30000) {
+      setSubmitStatus("error");
+      return;
+    }
+
+    // Basic validation
+    if (
+      !formData.name.trim() ||
+      !formData.email.trim() ||
+      !formData.message.trim()
+    ) {
+      setSubmitStatus("error");
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+    setLastSubmitTime(now);
+
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
+
+    try {
+      const payload = {
+        access_key: accessKey,
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+        subject: `New Contact Form Submission from ${formData.name}`,
+        from_name: formData.name,
+        replyto: formData.email,
+      };
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        setSubmitStatus("success");
+        setFormData({ name: "", email: "", message: "", honeypot: "" });
+      } else {
+        setSubmitStatus("error");
+      }
+    } catch (error) {
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const skills = {
@@ -411,7 +476,7 @@ export default function Portfolio() {
 
                       <div className="relative">
                         <div className="flex justify-between items-start mb-6">
-                          <div className="p-3 bg-primary/10 rounded-xl group-hover:bg-primary/20 transition-colors">
+                          <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
                             <IconComponent className="w-8 h-8 text-primary" />
                           </div>
                           <Button
@@ -727,7 +792,35 @@ export default function Portfolio() {
                     Send a Message
                   </h3>
 
+                  {submitStatus === "success" && (
+                    <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+                      <p className="text-green-800 font-medium">
+                        ✅ Message sent successfully! I'll get back to you soon.
+                      </p>
+                    </div>
+                  )}
+
+                  {submitStatus === "error" && (
+                    <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+                      <p className="text-red-800 font-medium">
+                        ❌ Failed to send message. Please try again or email me
+                        directly.
+                      </p>
+                    </div>
+                  )}
+
                   <form onSubmit={handleSubmit} className="space-y-6">
+                    {/* Hidden honeypot field for spam protection */}
+                    <input
+                      type="text"
+                      name="honeypot"
+                      value={formData.honeypot}
+                      onChange={handleInputChange}
+                      style={{ display: "none" }}
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
+
                     <motion.div
                       whileFocus={{ scale: 1.02 }}
                       transition={{ type: "spring", stiffness: 300 }}
@@ -742,6 +835,9 @@ export default function Portfolio() {
                         value={formData.name}
                         onChange={handleInputChange}
                         required
+                        disabled={isSubmitting}
+                        minLength={2}
+                        maxLength={100}
                         className="mt-2 focus:ring-2 focus:ring-primary/20 transition-all border-2 focus:border-primary"
                         placeholder="Your full name"
                       />
@@ -761,6 +857,8 @@ export default function Portfolio() {
                         value={formData.email}
                         onChange={handleInputChange}
                         required
+                        disabled={isSubmitting}
+                        maxLength={100}
                         className="mt-2 focus:ring-2 focus:ring-primary/20 transition-all border-2 focus:border-primary"
                         placeholder="your.email@example.com"
                       />
@@ -782,7 +880,10 @@ export default function Portfolio() {
                         value={formData.message}
                         onChange={handleInputChange}
                         required
+                        disabled={isSubmitting}
                         rows={5}
+                        minLength={10}
+                        maxLength={1000}
                         className="mt-2 focus:ring-2 focus:ring-primary/20 transition-all resize-none border-2 focus:border-primary"
                         placeholder="Tell me about your project or just say hello..."
                       />
@@ -795,10 +896,20 @@ export default function Portfolio() {
                       <Button
                         type="submit"
                         size="lg"
-                        className="w-full group bg-gradient-to-r from-primary to-emerald-600 hover:from-primary/90 hover:to-emerald-600/90 shadow-lg hover:shadow-xl transition-all duration-300"
+                        disabled={isSubmitting}
+                        className="w-full group bg-gradient-to-r from-primary to-emerald-600 hover:from-primary/90 hover:to-emerald-600/90 shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                       >
-                        <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" />
-                        Send Message
+                        {isSubmitting ? (
+                          <>
+                            <div className="w-5 h-5 mr-2 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                            Sending...
+                          </>
+                        ) : (
+                          <>
+                            <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" />
+                            Send Message
+                          </>
+                        )}
                       </Button>
                     </motion.div>
                   </form>
