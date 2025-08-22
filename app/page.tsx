@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 import {
   Github,
   Linkedin,
@@ -23,35 +23,37 @@ import {
   Sparkles,
   Zap,
   Target,
-} from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Label } from "@/components/ui/label"
-import { ThemeToggle } from "@/components/theme-toggle"
-import { useState } from "react"
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { useState } from "react";
 
 export default function Portfolio() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
-  })
+  });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     // Handle form submission here
-    console.log("Form submitted:", formData)
+    console.log("Form submitted:", formData);
     // Reset form
-    setFormData({ name: "", email: "", message: "" })
-  }
+    setFormData({ name: "", email: "", message: "" });
+  };
 
   const skills = {
     "Programming Languages": [
@@ -70,7 +72,7 @@ export default function Portfolio() {
       { name: "Agile Development", icon: Code },
       { name: "Software Testing", icon: Code },
     ],
-  }
+  };
 
   const projects = [
     {
@@ -97,7 +99,7 @@ export default function Portfolio() {
       link: "#",
       icon: Zap,
     },
-  ]
+  ];
 
   const timeline = [
     {
@@ -141,7 +143,7 @@ export default function Portfolio() {
         "Understanding of online business processes and digital marketing strategies",
       ],
     },
-  ]
+  ];
 
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
@@ -152,7 +154,11 @@ export default function Portfolio() {
       </div>
 
       <header className="fixed top-0 right-0 z-50 p-4 md:p-6">
-        <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
           <ThemeToggle />
         </motion.div>
       </header>
@@ -194,7 +200,7 @@ export default function Portfolio() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Front End Developer
+              Software Developer
             </motion.p>
 
             <motion.p
@@ -203,8 +209,10 @@ export default function Portfolio() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              Crafting exceptional digital experiences with modern JavaScript frameworks. Passionate about creating
-              user-centric, accessible applications that drive business growth and enhance user satisfaction.
+              Crafting exceptional digital experiences with modern JavaScript
+              frameworks. Passionate about creating user-centric, accessible
+              applications that drive business growth and enhance user
+              satisfaction.
             </motion.p>
           </motion.div>
 
@@ -220,7 +228,11 @@ export default function Portfolio() {
               className="group bg-transparent hover:bg-primary hover:text-primary-foreground border-2 hover:border-primary transition-all duration-300"
               asChild
             >
-              <a href="https://github.com/ashutoshyadav7891" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://github.com/ashutoshyadav7891"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Github className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
                 GitHub
               </a>
@@ -231,7 +243,11 @@ export default function Portfolio() {
               className="group bg-transparent hover:bg-primary hover:text-primary-foreground border-2 hover:border-primary transition-all duration-300"
               asChild
             >
-              <a href="https://www.linkedin.com/in/ashutosh-yadav-825b0b250/" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://www.linkedin.com/in/ashutosh-yadav-825b0b250/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Linkedin className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
                 LinkedIn
               </a>
@@ -273,15 +289,19 @@ export default function Portfolio() {
             <Card className="p-8 md:p-10 shadow-xl border-2 hover:border-primary/20 transition-all duration-300 bg-gradient-to-br from-background to-muted/20">
               <div className="space-y-6">
                 <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                  I'm a dedicated Front End Developer based in Noida, UP, with a Master's in Computer Applications from
-                  Bennett University. Currently working at Clickinpedia Pvt, I specialize in building responsive,
-                  user-centric web applications using modern technologies like React, Next.js, and the MERN stack.
+                  I'm a dedicated Front End Developer based in Noida, UP, with a
+                  Master's in Computer Applications from Bennett University.
+                  Currently working at Clickinpedia Pvt, I specialize in
+                  building responsive, user-centric web applications using
+                  modern technologies like React, Next.js, and the MERN stack.
                 </p>
                 <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                  My experience includes collaborating with cross-functional teams to develop internal CRM systems,
-                  integrating RESTful APIs, and translating Figma prototypes into responsive interfaces. I'm passionate
-                  about optimizing user experience and have successfully contributed to reducing client onboarding
-                  friction by 20% and improving code maintainability.
+                  My experience includes collaborating with cross-functional
+                  teams to develop internal CRM systems, integrating RESTful
+                  APIs, and translating Figma prototypes into responsive
+                  interfaces. I'm passionate about optimizing user experience
+                  and have successfully contributed to reducing client
+                  onboarding friction by 20% and improving code maintainability.
                 </p>
                 <div className="flex flex-wrap gap-3 pt-4">
                   <Badge variant="secondary" className="px-4 py-2 text-sm">
@@ -300,7 +320,10 @@ export default function Portfolio() {
         </div>
       </section>
 
-      <section className="py-24 px-4 bg-gradient-to-br from-muted/30 to-primary/5" id="skills">
+      <section
+        className="py-24 px-4 bg-gradient-to-br from-muted/30 to-primary/5"
+        id="skills"
+      >
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -313,38 +336,44 @@ export default function Portfolio() {
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {Object.entries(skills).map(([category, skillList], categoryIndex) => (
-                <motion.div
-                  key={category}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ y: -5 }}
-                >
-                  <Card className="p-6 h-full hover:shadow-2xl transition-all duration-300 border-2 hover:border-primary/30 bg-gradient-to-br from-background to-muted/10">
-                    <h3 className="font-bold font-[var(--font-heading)] mb-6 text-primary text-lg">{category}</h3>
-                    <div className="space-y-4">
-                      {skillList.map((skill, index) => {
-                        const IconComponent = skill.icon
-                        return (
-                          <motion.div
-                            key={skill.name}
-                            className="flex items-center gap-3 p-3 rounded-xl hover:bg-primary/10 transition-all duration-200 group cursor-pointer"
-                            whileHover={{ scale: 1.03, x: 5 }}
-                            transition={{ type: "spring", stiffness: 400 }}
-                          >
-                            <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
-                              <IconComponent className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
-                            </div>
-                            <span className="font-medium group-hover:text-primary transition-colors">{skill.name}</span>
-                          </motion.div>
-                        )
-                      })}
-                    </div>
-                  </Card>
-                </motion.div>
-              ))}
+              {Object.entries(skills).map(
+                ([category, skillList], categoryIndex) => (
+                  <motion.div
+                    key={category}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
+                    viewport={{ once: true }}
+                    whileHover={{ y: -5 }}
+                  >
+                    <Card className="p-6 h-full hover:shadow-2xl transition-all duration-300 border-2 hover:border-primary/30 bg-gradient-to-br from-background to-muted/10">
+                      <h3 className="font-bold font-[var(--font-heading)] mb-6 text-primary text-lg">
+                        {category}
+                      </h3>
+                      <div className="space-y-4">
+                        {skillList.map((skill, index) => {
+                          const IconComponent = skill.icon;
+                          return (
+                            <motion.div
+                              key={skill.name}
+                              className="flex items-center gap-3 p-3 rounded-xl hover:bg-primary/10 transition-all duration-200 group cursor-pointer"
+                              whileHover={{ scale: 1.03, x: 5 }}
+                              transition={{ type: "spring", stiffness: 400 }}
+                            >
+                              <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
+                                <IconComponent className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
+                              </div>
+                              <span className="font-medium group-hover:text-primary transition-colors">
+                                {skill.name}
+                              </span>
+                            </motion.div>
+                          );
+                        })}
+                      </div>
+                    </Card>
+                  </motion.div>
+                )
+              )}
             </div>
           </motion.div>
         </div>
@@ -364,7 +393,7 @@ export default function Portfolio() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.map((project, index) => {
-                const IconComponent = project.icon
+                const IconComponent = project.icon;
                 return (
                   <motion.div
                     key={project.title}
@@ -389,7 +418,11 @@ export default function Portfolio() {
                             className="opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
                             asChild
                           >
-                            <a href={project.link} target="_blank" rel="noopener noreferrer">
+                            <a
+                              href={project.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
                               <ExternalLink className="w-5 h-5" />
                             </a>
                           </Button>
@@ -399,7 +432,9 @@ export default function Portfolio() {
                           {project.title}
                         </h3>
 
-                        <p className="text-muted-foreground mb-6 leading-relaxed">{project.description}</p>
+                        <p className="text-muted-foreground mb-6 leading-relaxed">
+                          {project.description}
+                        </p>
 
                         <div className="flex flex-wrap gap-2 mb-6">
                           {project.techStack.map((tech) => (
@@ -418,7 +453,11 @@ export default function Portfolio() {
                           className="w-full group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-all duration-300 bg-transparent border-2"
                           asChild
                         >
-                          <a href={project.link} target="_blank" rel="noopener noreferrer">
+                          <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             View Project
                             <ExternalLink className="w-4 h-4 ml-2" />
                           </a>
@@ -426,7 +465,7 @@ export default function Portfolio() {
                       </div>
                     </Card>
                   </motion.div>
-                )
+                );
               })}
             </div>
           </motion.div>
@@ -474,20 +513,29 @@ export default function Portfolio() {
                         </div>
                         <div className="flex-1">
                           <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                            <h3 className="text-xl font-semibold font-[var(--font-heading)]">{item.title}</h3>
+                            <h3 className="text-xl font-semibold font-[var(--font-heading)]">
+                              {item.title}
+                            </h3>
                             <div className="flex items-center gap-2 text-sm text-muted-foreground">
                               <Calendar className="w-4 h-4" />
                               {item.period}
                             </div>
                           </div>
-                          <p className="text-primary font-medium mb-1">{item.organization}</p>
-                          <p className="text-sm text-muted-foreground mb-4">{item.location}</p>
+                          <p className="text-primary font-medium mb-1">
+                            {item.organization}
+                          </p>
+                          <p className="text-sm text-muted-foreground mb-4">
+                            {item.location}
+                          </p>
                         </div>
                       </div>
 
                       <div className="space-y-2">
                         {item.description.map((desc, descIndex) => (
-                          <p key={descIndex} className="text-muted-foreground leading-relaxed">
+                          <p
+                            key={descIndex}
+                            className="text-muted-foreground leading-relaxed"
+                          >
                             • {desc}
                           </p>
                         ))}
@@ -495,10 +543,16 @@ export default function Portfolio() {
 
                       {item.achievements && (
                         <div className="mt-4 pt-4 border-t border-border">
-                          <h4 className="font-medium mb-2 text-primary">Key Achievements:</h4>
+                          <h4 className="font-medium mb-2 text-primary">
+                            Key Achievements:
+                          </h4>
                           <div className="flex flex-wrap gap-2">
                             {item.achievements.map((achievement, achIndex) => (
-                              <Badge key={achIndex} variant="outline" className="text-xs">
+                              <Badge
+                                key={achIndex}
+                                variant="outline"
+                                className="text-xs"
+                              >
                                 {achievement}
                               </Badge>
                             ))}
@@ -535,10 +589,14 @@ export default function Portfolio() {
                 viewport={{ once: true }}
               >
                 <Card className="p-8 h-full shadow-xl border-2 hover:border-primary/20 transition-all duration-300 bg-gradient-to-br from-background to-muted/10">
-                  <h3 className="text-2xl font-bold font-[var(--font-heading)] mb-6">Let's Connect</h3>
+                  <h3 className="text-2xl font-bold font-[var(--font-heading)] mb-6">
+                    Let's Connect
+                  </h3>
                   <p className="text-muted-foreground mb-8 leading-relaxed text-lg">
-                    I'm always interested in new opportunities and exciting projects. Whether you're a recruiter,
-                    potential collaborator, or just want to say hello, feel free to reach out!
+                    I'm always interested in new opportunities and exciting
+                    projects. Whether you're a recruiter, potential
+                    collaborator, or just want to say hello, feel free to reach
+                    out!
                   </p>
 
                   <div className="space-y-6">
@@ -552,7 +610,9 @@ export default function Portfolio() {
                       </div>
                       <div>
                         <p className="font-semibold">Email</p>
-                        <p className="text-muted-foreground">ashutoshyadav7891@gmail.com</p>
+                        <p className="text-muted-foreground">
+                          ashutoshyadav7891@gmail.com
+                        </p>
                       </div>
                     </motion.div>
 
@@ -566,7 +626,9 @@ export default function Portfolio() {
                       </div>
                       <div>
                         <p className="font-semibold">Location</p>
-                        <p className="text-muted-foreground">Noida, UP, India</p>
+                        <p className="text-muted-foreground">
+                          Noida, UP, India
+                        </p>
                       </div>
                     </motion.div>
 
@@ -586,7 +648,9 @@ export default function Portfolio() {
                   </div>
 
                   <div className="mt-8 pt-8 border-t border-border">
-                    <p className="text-sm text-muted-foreground mb-4 font-medium">Follow me on social media:</p>
+                    <p className="text-sm text-muted-foreground mb-4 font-medium">
+                      Follow me on social media:
+                    </p>
                     <div className="flex gap-4">
                       <Button
                         variant="outline"
@@ -594,7 +658,11 @@ export default function Portfolio() {
                         className="hover:bg-primary hover:text-primary-foreground bg-transparent border-2 hover:border-primary transition-all duration-300"
                         asChild
                       >
-                        <a href="https://github.com/ashutoshyadav7891" target="_blank" rel="noopener noreferrer">
+                        <a
+                          href="https://github.com/ashutoshyadav7891"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
                           <Github className="w-5 h-5" />
                         </a>
                       </Button>
@@ -618,7 +686,11 @@ export default function Portfolio() {
                         className="hover:bg-primary hover:text-primary-foreground bg-transparent border-2 hover:border-primary transition-all duration-300"
                         asChild
                       >
-                        <a href="https://x.com/Ashutos98067436" target="_blank" rel="noopener noreferrer">
+                        <a
+                          href="https://x.com/Ashutos98067436"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
                           <Twitter className="w-5 h-5" />
                         </a>
                       </Button>
@@ -628,7 +700,11 @@ export default function Portfolio() {
                         className="hover:bg-primary hover:text-primary-foreground bg-transparent border-2 hover:border-primary transition-all duration-300"
                         asChild
                       >
-                        <a href="https://www.instagram.com/ashutosh_yadav6/" target="_blank" rel="noopener noreferrer">
+                        <a
+                          href="https://www.instagram.com/ashutosh_yadav6/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
                           <Instagram className="w-5 h-5" />
                         </a>
                       </Button>
@@ -645,10 +721,15 @@ export default function Portfolio() {
                 viewport={{ once: true }}
               >
                 <Card className="p-8 h-full shadow-xl border-2 hover:border-primary/20 transition-all duration-300 bg-gradient-to-br from-background to-muted/10">
-                  <h3 className="text-2xl font-bold font-[var(--font-heading)] mb-6">Send a Message</h3>
+                  <h3 className="text-2xl font-bold font-[var(--font-heading)] mb-6">
+                    Send a Message
+                  </h3>
 
                   <form onSubmit={handleSubmit} className="space-y-6">
-                    <motion.div whileFocus={{ scale: 1.02 }} transition={{ type: "spring", stiffness: 300 }}>
+                    <motion.div
+                      whileFocus={{ scale: 1.02 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
                       <Label htmlFor="name" className="text-sm font-semibold">
                         Name *
                       </Label>
@@ -664,7 +745,10 @@ export default function Portfolio() {
                       />
                     </motion.div>
 
-                    <motion.div whileFocus={{ scale: 1.02 }} transition={{ type: "spring", stiffness: 300 }}>
+                    <motion.div
+                      whileFocus={{ scale: 1.02 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
                       <Label htmlFor="email" className="text-sm font-semibold">
                         Email *
                       </Label>
@@ -680,8 +764,14 @@ export default function Portfolio() {
                       />
                     </motion.div>
 
-                    <motion.div whileFocus={{ scale: 1.02 }} transition={{ type: "spring", stiffness: 300 }}>
-                      <Label htmlFor="message" className="text-sm font-semibold">
+                    <motion.div
+                      whileFocus={{ scale: 1.02 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      <Label
+                        htmlFor="message"
+                        className="text-sm font-semibold"
+                      >
                         Message *
                       </Label>
                       <Textarea
@@ -696,7 +786,10 @@ export default function Portfolio() {
                       />
                     </motion.div>
 
-                    <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                    <motion.div
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
                       <Button
                         type="submit"
                         size="lg"
@@ -723,7 +816,8 @@ export default function Portfolio() {
                 Ashutosh Yadav
               </h3>
               <p className="text-muted-foreground mb-6 leading-relaxed">
-                Front End Developer passionate about creating exceptional user experiences with modern web technologies.
+                Front End Developer passionate about creating exceptional user
+                experiences with modern web technologies.
               </p>
               <div className="flex gap-3">
                 <Button
@@ -732,7 +826,11 @@ export default function Portfolio() {
                   className="hover:bg-primary hover:text-primary-foreground transition-all duration-300"
                   asChild
                 >
-                  <a href="https://github.com/ashutoshyadav7891" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="https://github.com/ashutoshyadav7891"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <Github className="w-5 h-5" />
                   </a>
                 </Button>
@@ -756,7 +854,11 @@ export default function Portfolio() {
                   className="hover:bg-primary hover:text-primary-foreground transition-all duration-300"
                   asChild
                 >
-                  <a href="https://x.com/Ashutos98067436" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="https://x.com/Ashutos98067436"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <Twitter className="w-5 h-5" />
                   </a>
                 </Button>
@@ -766,7 +868,11 @@ export default function Portfolio() {
                   className="hover:bg-primary hover:text-primary-foreground transition-all duration-300"
                   asChild
                 >
-                  <a href="https://www.instagram.com/ashutosh_yadav6/" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="https://www.instagram.com/ashutosh_yadav6/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <Instagram className="w-5 h-5" />
                   </a>
                 </Button>
@@ -837,10 +943,12 @@ export default function Portfolio() {
           </div>
 
           <div className="pt-8 border-t border-border text-center">
-            <p className="text-muted-foreground">© {new Date().getFullYear()} Ashutosh Yadav. All rights reserved.</p>
+            <p className="text-muted-foreground">
+              © {new Date().getFullYear()} Ashutosh Yadav. All rights reserved.
+            </p>
           </div>
         </div>
       </footer>
     </div>
-  )
+  );
 }
