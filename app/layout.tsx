@@ -20,9 +20,12 @@ export const metadata: Metadata = {
   title: "Ashutosh Yadav - Front End Developer",
   description:
     "Professional portfolio of Ashutosh Yadav, Front End Developer specializing in React, Next.js, and modern web technologies.",
-  generator: "v0.app",
   icons: {
     icon: "/favicon.png", // 👈 points to your png
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
