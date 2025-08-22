@@ -27,6 +27,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  alternates: {
+    canonical: "https://ashutoshyadav.dev",
+  },
 };
 
 export default function RootLayout({
