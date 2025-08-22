@@ -323,7 +323,7 @@ export default function Portfolio() {
               className="group bg-transparent hover:bg-primary hover:text-primary-foreground border-2 hover:border-primary transition-all duration-300"
               asChild
             >
-              <a href="mailto:ashutoshyadav7891@gmail.com">
+              <a href="mailto:contact@ashutoshyadav.tech">
                 <Mail className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
                 Email Me
               </a>
@@ -678,7 +678,7 @@ export default function Portfolio() {
                       <div>
                         <p className="font-semibold">Email</p>
                         <p className="text-muted-foreground">
-                          ashutoshyadav7891@gmail.com
+                          contact@ashutoshyadav.tech
                         </p>
                       </div>
                     </motion.div>
@@ -1045,7 +1045,7 @@ export default function Portfolio() {
               <div className="space-y-3 text-muted-foreground">
                 <p className="flex items-center gap-2 hover:text-primary transition-colors">
                   <Mail className="w-4 h-4" />
-                  ashutoshyadav7891@gmail.com
+                  contact@ashutoshyadav.tech
                 </p>
                 <p className="flex items-center gap-2 hover:text-primary transition-colors">
                   <MapPin className="w-4 h-4" />
