@@ -263,13 +263,15 @@ export default function Portfolio() {
                 Email Me
               </a>
             </Button>
-            <Button
-              size="lg"
-              className="group bg-gradient-to-r from-primary to-emerald-600 hover:from-primary/90 hover:to-emerald-600/90 shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              <Download className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
-              Download Resume
-            </Button>
+            <a href="/resume.pdf" download="Ashutosh's_resume.pdf">
+              <Button
+                size="lg"
+                className="group bg-gradient-to-r from-primary to-emerald-600 hover:from-primary/90 hover:to-emerald-600/90 shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <Download className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+                Download Resume
+              </Button>
+            </a>
           </motion.div>
         </div>
       </section>
