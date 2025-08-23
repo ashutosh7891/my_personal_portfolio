@@ -294,7 +294,7 @@ export default function Portfolio() {
               asChild
             >
               <a
-                href="https://github.com/ashutoshyadav7891"
+                href="https://github.com/ashutosh7891"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -726,7 +726,7 @@ export default function Portfolio() {
                         asChild
                       >
                         <a
-                          href="https://github.com/ashutoshyadav7891"
+                          href="https://github.com/ashutosh7891"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
@@ -940,7 +940,7 @@ export default function Portfolio() {
                   asChild
                 >
                   <a
-                    href="https://github.com/ashutoshyadav7891"
+                    href="https://github.com/ashutosh7891"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
