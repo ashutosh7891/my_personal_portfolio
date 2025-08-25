@@ -19,7 +19,7 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: "Ashutosh Yadav - Front End Developer",
   description:
-    "Full Stack JavaScript Developer with expertise in the MERN stack, delivering high-performance, secure, and user-focused web solutions"
+    "Full Stack JavaScript Developer with expertise in the MERN stack, delivering high-performance, secure, and user-focused web solutions  "
   icons: {
     icon: "/favicon.png", // 👈 points to your png
   },
