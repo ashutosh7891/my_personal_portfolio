@@ -88,6 +88,36 @@ export default function Portfolio() {
       formDataToSend.append("email", formData.email.trim());
       formDataToSend.append("message", formData.message.trim());
 
+      formDataToSend.append("autoresponse", "true");
+      formDataToSend.append(
+        "autoresponse_subject",
+        "✨ Thanks for reaching out! I'll be in touch soon"
+      );
+      formDataToSend.append(
+        "autoresponse_message",
+        `Hi ${formData.name.trim()},
+
+🚀 Thank you for reaching out! Your message just landed in my inbox and I'm genuinely excited to connect with you.
+
+I've received your inquiry and will get back to you within 24 hours. I believe in meaningful conversations, so expect a thoughtful response!
+
+While you wait, feel free to:
+• Explore my latest projects on my portfolio
+• Connect with me on LinkedIn for professional updates
+• Follow my coding journey on Instagram for behind-the-scenes content
+
+Looking forward to our conversation and potentially working together!
+
+Best regards,
+Ashutosh Yadav 💻
+
+🔗 Portfolio: https://ashutoshyadav.tech
+💼 LinkedIn: https://www.linkedin.com/in/ashutosh-yadav-825b0b250/
+📸 Instagram: https://www.instagram.com/ashutosh_yadav6/
+
+P.S. - Great developers respond fast, and I'm no exception! 😉`
+      );
+
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         body: formDataToSend,
