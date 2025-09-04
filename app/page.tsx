@@ -192,7 +192,7 @@ P.S. - Great developers respond fast, and I'm no exception! 😉`
   const timeline = [
     {
       type: "experience",
-      title: "Front End Developer",
+      title: "Full stack developer",
       organization: "Clickinpedia Pvt",
       location: "Noida, India",
       period: "Dec 2023 - Present",
@@ -470,8 +470,8 @@ P.S. - Great developers respond fast, and I'm no exception! 😉`
             <Card className="p-8 md:p-10 shadow-xl border-2 hover:border-primary/20 transition-all duration-300 bg-gradient-to-br from-background to-muted/20">
               <div className="space-y-6">
                 <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                  I'm a dedicated Front End Developer based in Noida, UP, with a
-                  Master's in Computer Applications from Bennett University.
+                  I'm a dedicated Full-stack developer based in Noida, UP, with
+                  a Master's in Computer Applications from Bennett University.
                   Currently working at Clickinpedia Pvt, I specialize in
                   building responsive, user-centric web applications using
                   modern technologies like React, Next.js, and the MERN stack.
@@ -1010,7 +1010,7 @@ P.S. - Great developers respond fast, and I'm no exception! 😉`
                 Ashutosh Yadav
               </h3>
               <p className="text-muted-foreground mb-6 leading-relaxed">
-                Front End Developer passionate about creating exceptional user
+                Full stack developer passionate about creating exceptional user
                 experiences with modern web technologies.
               </p>
               <div className="flex gap-3">
